@@ -3,20 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Car : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public GameObject startingPoint;
     [SerializeField] VoiceController voiceController;
     public float speed;
     public float impulsePower;
 
-    public Queue<Vector3> path;
-    private Queue<Vector3> prevPath;
 
     public Vector3 mousePos;
-    private Vector3 nextPos;
-
-    public bool canMove = false;
     
     public GameObject head;
     private Vector3 headVec;
@@ -25,6 +20,10 @@ public class Car : MonoBehaviour
     [SerializeField] GameObject stars;
     [SerializeField] MenuController menuController;
 
+    private Vector3 target;
+
+    private List<Vector3> visitedTiles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +31,11 @@ public class Car : MonoBehaviour
         {
             this.gameObject.transform.position = startingPoint.transform.position 
                                                     + new Vector3(0.0f, this.transform.localScale.y / 2, 0.0f);
+            target = startingPoint.transform.position;
         }
 
-        path = new Queue<Vector3>();
-        prevPath = new Queue<Vector3>();
+        visitedTiles = new List<Vector3>();
+        visitedTiles.Add(startingPoint.transform.position);
 
         headVec = (head.transform.position - this.transform.position).normalized;
         dir = headVec;
@@ -45,24 +45,18 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canMove == true)
+        float dist = Vector3.Distance(this.transform.position, target);
+        if (dist > 0.05f)
         {
-            if (path.Count != 0)
-            {
-                float dist = Vector3.Distance(this.transform.position, nextPos);
 
-                if (dist < 0.05f)
-                {
-                    nextPos = path.Dequeue();
-                }
+            target = new Vector3(target.x, this.transform.position.y, target.z);
+            dir = (target - this.transform.position);
 
-                nextPos = new Vector3(nextPos.x, this.transform.position.y, nextPos.z);
-                dir = (nextPos - this.transform.position);
-            }
 
             float angle = Quaternion.FromToRotation(headVec, dir).eulerAngles.y;
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime * 10.0f);
-            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed);
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(dir),
+                Time.deltaTime * 10.0f);
+            transform.position = Vector3.MoveTowards(transform.position, target, speed);
             transform.GetComponent<Animator>().SetBool("Run", true);
         }
         else
@@ -74,66 +68,36 @@ public class Car : MonoBehaviour
         return dir;
     }
 
+    public void SetTarget(Vector3 target)
+    {
+        if (!visitedTiles.Contains(target))
+        {
+            this.target = target;
+            visitedTiles.Add(target);
+        }
+    }
+
     public void CarReset()
     {
         this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
-
-        if (prevPath.Count != 0)
-        {
-            path = new Queue<Vector3>(prevPath.ToArray());
-        }
-
-        canMove = false;
-
         this.gameObject.transform.position = startingPoint.transform.position
-                                                    + new Vector3(0.0f, this.transform.localScale.y / 2, 0.0f);
+                                             + new Vector3(0.0f, this.transform.localScale.y / 2, 0.0f);
         dir = headVec;
 
-        this.transform.rotation = startAngle;
-    }
-
-    public void CarMove()
-    {
-        if(path.Count > 2)
-        {
-            nextPos = path.Dequeue();
-            nextPos = new Vector3(nextPos.x, this.transform.position.y, nextPos.z);
-
-            canMove = true;
-        }
-        else
-        {
-            this.gameObject.transform.position = startingPoint.transform.position
-                                                    + new Vector3(0.0f, this.transform.localScale.y / 2, 0.0f);
-        }   
-    }
-
-    public void SetCarPath(Queue<Vector3> prevVec, Queue<Vector3> currentVec)
-    {
-        path = new Queue<Vector3>(currentVec.ToArray());
-        prevPath = new Queue<Vector3>(prevVec.ToArray());
-    }
-    
-    public void ResetPaths()
-    {
-        prevPath.Clear();
-        path.Clear();
-        dir = headVec;
         this.transform.rotation = startAngle;
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.GetComponent<Car>())
+        if(collision.gameObject.GetComponent<Player>())
         {
             Debug.Log("çarptı");
-            canMove = false;
             transform.GetComponent<Animator>().SetBool("Carpisma", true);
             GameObject.Find("Main Camera").GetComponent<VoiceController>().playVoice(4);
             stars.SetActive(true);
             GameObject.Find("Main Camera").GetComponent<CameraShake>().Shake();
             StartCoroutine(RestartLevel());
-            /*Car otherCar = collision.gameObject.GetComponent<Car>();
+            /*Player otherCar = collision.gameObject.GetComponent<Player>();
             Vector3 otherDir = otherCar.GetDir();
             Vector3 myInvDir = -dir;
 
@@ -142,8 +106,6 @@ public class Car : MonoBehaviour
         }
         else if(collision.gameObject.tag != "Ground")
         {
-            canMove = false;
-
             Vector3 myInvDir = -dir;
 
             Vector3 powerDir =  myInvDir + Vector3.up;
