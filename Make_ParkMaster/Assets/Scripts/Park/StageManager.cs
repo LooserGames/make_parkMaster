@@ -16,12 +16,6 @@ public class StageManager : MonoBehaviour
         notClearNum = goals.Length;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void CheckEveryCarInGoal()
     {
         for(int i = 0; i < goals.Length; i++)
@@ -34,15 +28,5 @@ public class StageManager : MonoBehaviour
         menuController.OpenWinPanel();
         GetComponent<VoiceController>().playVoice(0);
       //  ClearGame();
-    }
-
-    private void ClearGame()
-    {
-        CarManager[] carManagers = FindObjectsOfType<CarManager>();
-
-        for(int i = 0; i < carManagers.Length; i++)
-        {
-            carManagers[i].TurnOffCollider();
-        }
     }
 }

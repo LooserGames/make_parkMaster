@@ -36,12 +36,11 @@ public class Goal : MonoBehaviour
             Debug.Log("Parkta");
             isCarHere = true;
             Debug.Log(myCar.name);
-            myCar.GetComponent<Car>().canMove = false;
             kareAnim.SetActive(true);
             GameObject.Find("Main Camera").GetComponent<VoiceController>().playVoice(1);
             myCar.GetComponent<Animator>().SetBool("Win", true);
             fillColor.SetActive(true);
-            //myCar.GetComponent<Animator>().SetBool("Run", false);
+            //myPlayer.GetComponent<Animator>().SetBool("Run", false);
         //    this.GetComponent<MeshRenderer>().material.color = new Color(color.r + 0.5f, color.g + 0.5f, color.b + 0.5f);
 
             if (stageManager != null)
