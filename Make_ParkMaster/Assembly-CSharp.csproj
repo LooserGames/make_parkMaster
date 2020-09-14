@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Park\Goal.cs" />
     <Compile Include="Assets\Scripts\Park\MenuController.cs" />
     <Compile Include="Assets\Scripts\Park\Player.cs" />
+    <Compile Include="Assets\Scripts\Park\PlayerAI.cs" />
     <Compile Include="Assets\Scripts\Park\StageManager.cs" />
     <Compile Include="Assets\Scripts\Park\Tile.cs" />
     <Compile Include="Assets\Scripts\Park\VoiceController.cs" />
