@@ -45,32 +45,36 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     private void Update()
-    {
-        float dist = Vector3.Distance(this.transform.position, target);
-        if (dist > 0.05f)
         {
-
-            target = new Vector3(target.x, this.transform.position.y, target.z);
-            dir = (target - this.transform.position);
-
-
-            float angle = Quaternion.FromToRotation(headVec, dir).eulerAngles.y;
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(dir),
-                Time.deltaTime * 10.0f);
-            transform.position = Vector3.MoveTowards(transform.position, target, speed);
-            transform.GetComponent<Animator>().SetBool("Run", true);
-
+            float dist = Vector3.Distance(this.transform.position, target);
+            if (dist > 0.05f)
+            {
+    
+                target = new Vector3(target.x, this.transform.position.y, target.z);
+                dir = (target - this.transform.position);
+    
+    
+                float angle = Quaternion.FromToRotation(headVec, dir).eulerAngles.y;
+                this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(dir),
+                    Time.deltaTime * 10.0f);
+                transform.position = Vector3.MoveTowards(transform.position, target, speed);
+                transform.GetComponent<Animator>().SetBool("Run", true);
+    
+                dist = Vector3.Distance(this.transform.position, target);
+                if (dist < 0.05f)
+                {
+                    if (ai != null)
+                    {
+                        ai.SetRandomTile();
+                        transform.position = target;
+                    }
+                }
+            }
+    
+            else
+                transform.GetComponent<Animator>().SetBool("Run", false);
+    
         }
-        else if(dist <0.05f && dist > 0.01f)
-        {
-            if(ai != null) ai.SetRandomTile();
-            transform.position = target;
-        }
-        else
-            transform.GetComponent<Animator>().SetBool("Run", false);
-
-    }
-
     public Vector3 GetDir()
     {
         return dir;
