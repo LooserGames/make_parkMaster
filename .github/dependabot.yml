@@ -1,0 +1,35 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "daily"
+      
+      
+[core]
+    repositoryformatversion = 0
+    filemode = false
+    bare = false
+    logallrefupdates = true
+    symlinks = false
+    ignorecase = true
+
+
+[merge]
+    tool = unityyamlmerge
+
+[mergetool "unityyamlmerge"]
+     trustExitCode = false
+     keepTemporaries = true
+     keepBackup = false
+     path = 'C:\\Program Files\\Unity\\Editor\\Data\\Tools\\UnityYAMLMerge.exe'
+     cmd = 'C:\\Program Files\\Unity\\Editor\\Data\\Tools\\UnityYAMLMerge.exe' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+  
+  [diff "unity"]
+      textconv='C:\\Users\\petit_v\\unityYamlTextConv.py'
+  
