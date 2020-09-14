@@ -17,15 +17,16 @@ public class Player : MonoBehaviour
     private Vector3 headVec;
     private Vector3 dir;
     public Quaternion startAngle;
-    [SerializeField] GameObject stars;
-    [SerializeField] MenuController menuController;
+    [SerializeField] private GameObject stars;
+    [SerializeField] private MenuController menuController;
 
     private Vector3 target;
+    [SerializeField]private PlayerAI ai;
 
-    private List<Vector3> visitedTiles;
+    protected List<Vector3> visitedTiles;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         if(startingPoint != null)
         {
@@ -43,7 +44,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float dist = Vector3.Distance(this.transform.position, target);
         if (dist > 0.05f)
@@ -58,9 +59,16 @@ public class Player : MonoBehaviour
                 Time.deltaTime * 10.0f);
             transform.position = Vector3.MoveTowards(transform.position, target, speed);
             transform.GetComponent<Animator>().SetBool("Run", true);
+
+        }
+        else if(dist <0.05f && dist > 0.01f)
+        {
+            if(ai != null) ai.SetRandomTile();
+            transform.position = target;
         }
         else
             transform.GetComponent<Animator>().SetBool("Run", false);
+
     }
 
     public Vector3 GetDir()
@@ -75,16 +83,6 @@ public class Player : MonoBehaviour
             this.target = target;
             visitedTiles.Add(target);
         }
-    }
-
-    public void CarReset()
-    {
-        this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
-        this.gameObject.transform.position = startingPoint.transform.position
-                                             + new Vector3(0.0f, this.transform.localScale.y / 2, 0.0f);
-        dir = headVec;
-
-        this.transform.rotation = startAngle;
     }
 
     public void OnCollisionEnter(Collision collision)
