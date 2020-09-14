@@ -133,8 +133,9 @@ GameObject:
   - component: {fileID: 30493019}
   - component: {fileID: 30493018}
   - component: {fileID: 30493017}
+  - component: {fileID: 30493020}
   m_Layer: 9
-  m_Name: Cube (8)
+  m_Name: Tile5
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,70 +215,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30493015}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &96250853
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 96250854}
-  - component: {fileID: 96250855}
-  - component: {fileID: 96250856}
-  m_Layer: 0
-  m_Name: Manager
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &96250854
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96250853}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 787843871}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &96250855
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96250853}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.3, z: 0.4}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &96250856
+--- !u!114 &30493020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96250853}
+  m_GameObject: {fileID: 30493015}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCar: {fileID: 293898765}
-  goal: {fileID: 550817643}
-  linePrefab: {fileID: 6989172668545376227, guid: 70d8d7c1fb557b642a9a00a0800a452b,
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
     type: 3}
   line: {fileID: 0}
   lineRenderer: {fileID: 0}
-  tilePos: {fileID: 787843871}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1 &100983245
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,12 +433,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571f8cc8cf3086a45bf97a0f4b1d3aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPoint: {fileID: 458813452}
+  startingPoint: {fileID: 0}
   voiceController: {fileID: 0}
   speed: 0.07
   impulsePower: 30
   mousePos: {x: 0, y: 0, z: 0}
-  canMove: 0
   head: {fileID: 300775879}
   startAngle: {x: 0, y: 0, z: 0, w: 0}
   stars: {fileID: 0}
@@ -712,8 +667,9 @@ GameObject:
   - component: {fileID: 203943768}
   - component: {fileID: 203943773}
   - component: {fileID: 203943772}
+  - component: {fileID: 203943774}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Tile13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,6 +791,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203943767}
   m_CullTransparentMesh: 0
+--- !u!114 &203943774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203943767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1 &286403516
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,8 +822,9 @@ GameObject:
   - component: {fileID: 286403520}
   - component: {fileID: 286403519}
   - component: {fileID: 286403518}
+  - component: {fileID: 286403521}
   m_Layer: 9
-  m_Name: Cube (6)
+  m_Name: Tile3
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,6 +904,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286403516}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &286403521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286403516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1001 &293898762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1014,7 +1009,7 @@ PrefabInstance:
         type: 3}
       propertyPath: startingPoint
       value: 
-      objectReference: {fileID: 787843870}
+      objectReference: {fileID: 751885577}
     - target: {fileID: 6318146511503885872, guid: 049d6e43e4f044d4b9ff71c0be7f27e6,
         type: 3}
       propertyPath: menuController
@@ -1035,6 +1030,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 064ece3248a0d234b9122fba9a54cb12, type: 2}
+    - target: {fileID: 8607732142608566631, guid: 049d6e43e4f044d4b9ff71c0be7f27e6,
+        type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 612316335}
+    - target: {fileID: 8607732142608566631, guid: 049d6e43e4f044d4b9ff71c0be7f27e6,
+        type: 3}
+      propertyPath: linePrefab
+      value: 
+      objectReference: {fileID: 6989172668545376227, guid: 70d8d7c1fb557b642a9a00a0800a452b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 049d6e43e4f044d4b9ff71c0be7f27e6, type: 3}
 --- !u!1 &293898763 stripped
@@ -1197,8 +1203,9 @@ GameObject:
   - component: {fileID: 307607544}
   - component: {fileID: 307607543}
   - component: {fileID: 307607542}
+  - component: {fileID: 307607545}
   m_Layer: 9
-  m_Name: Cube (7)
+  m_Name: Tile4
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1278,6 +1285,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307607540}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &307607545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307607540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1001 &312385128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6394,38 +6420,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445372116}
   m_CullTransparentMesh: 0
---- !u!1 &458813452
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 458813453}
-  m_Layer: 9
-  m_Name: StartingPoint
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &458813453
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458813452}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1683582529}
-  - {fileID: 1569089859}
-  m_Father: {fileID: 876483349}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &510558244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6618,8 +6612,9 @@ GameObject:
   - component: {fileID: 569360534}
   - component: {fileID: 569360533}
   - component: {fileID: 569360532}
+  - component: {fileID: 569360535}
   m_Layer: 9
-  m_Name: Cube (13)
+  m_Name: Tile11
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6699,6 +6694,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569360530}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &569360535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569360530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1001 &575917990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6828,8 +6842,9 @@ GameObject:
   - component: {fileID: 604461609}
   - component: {fileID: 604461608}
   - component: {fileID: 604461607}
+  - component: {fileID: 604461610}
   m_Layer: 9
-  m_Name: Cube (4)
+  m_Name: Tile1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6909,6 +6924,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604461605}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &604461610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604461605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1 &612316335
 GameObject:
   m_ObjectHideFlags: 0
@@ -7358,8 +7392,9 @@ GameObject:
   - component: {fileID: 732057131}
   - component: {fileID: 732057130}
   - component: {fileID: 732057129}
+  - component: {fileID: 732057132}
   m_Layer: 9
-  m_Name: Cube (10)
+  m_Name: Tile8
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7439,6 +7474,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732057127}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &732057132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732057127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1001 &741375491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7520,8 +7574,9 @@ GameObject:
   - component: {fileID: 746842940}
   - component: {fileID: 746842939}
   - component: {fileID: 746842938}
+  - component: {fileID: 746842941}
   m_Layer: 9
-  m_Name: Cube (11)
+  m_Name: Tile9
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7601,6 +7656,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746842936}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &746842941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746842936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1 &751885577
 GameObject:
   m_ObjectHideFlags: 0
@@ -7613,8 +7687,9 @@ GameObject:
   - component: {fileID: 751885581}
   - component: {fileID: 751885580}
   - component: {fileID: 751885579}
+  - component: {fileID: 751885582}
   m_Layer: 9
-  m_Name: Cube (5)
+  m_Name: Start1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7631,7 +7706,7 @@ Transform:
   m_LocalPosition: {x: 1.7777, y: 11.364, z: -5.3874}
   m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
   m_Children:
-  - {fileID: 787843871}
+  - {fileID: 1579612933}
   m_Father: {fileID: 1212044933}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7695,6 +7770,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751885577}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &751885582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751885577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1 &760221811
 GameObject:
   m_ObjectHideFlags: 0
@@ -7707,8 +7801,9 @@ GameObject:
   - component: {fileID: 760221815}
   - component: {fileID: 760221814}
   - component: {fileID: 760221813}
+  - component: {fileID: 760221816}
   m_Layer: 9
-  m_Name: Cube (9)
+  m_Name: Tile7
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7788,6 +7883,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760221811}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &760221816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760221811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1 &770972005
 GameObject:
   m_ObjectHideFlags: 0
@@ -7818,38 +7932,6 @@ Transform:
   m_Father: {fileID: 1438954800}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &787843870
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 787843871}
-  m_Layer: 9
-  m_Name: StartingPoint
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &787843871
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787843870}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1579612933}
-  - {fileID: 96250854}
-  m_Father: {fileID: 751885578}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &804530920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 443126, guid: c6e2154c326e8a04dac27eaed9299efb,
@@ -7868,8 +7950,9 @@ GameObject:
   - component: {fileID: 876483352}
   - component: {fileID: 876483351}
   - component: {fileID: 876483350}
+  - component: {fileID: 876483353}
   m_Layer: 9
-  m_Name: Cube (3)
+  m_Name: Start2
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7886,7 +7969,7 @@ Transform:
   m_LocalPosition: {x: -1.2223, y: 11.363883, z: -5.3874}
   m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
   m_Children:
-  - {fileID: 458813453}
+  - {fileID: 1683582529}
   m_Father: {fileID: 1212044933}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7950,6 +8033,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876483348}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &876483353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876483348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1 &905070400
 GameObject:
   m_ObjectHideFlags: 0
@@ -9045,8 +9147,9 @@ GameObject:
   - component: {fileID: 1248621449}
   - component: {fileID: 1248621448}
   - component: {fileID: 1248621447}
+  - component: {fileID: 1248621450}
   m_Layer: 9
-  m_Name: Cube (14)
+  m_Name: Tile12
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9126,6 +9229,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248621445}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1248621450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248621445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!4 &1374006153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 443126, guid: c6e2154c326e8a04dac27eaed9299efb,
@@ -9774,70 +9896,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1569089858
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1569089859}
-  - component: {fileID: 1569089860}
-  - component: {fileID: 1569089861}
-  m_Layer: 0
-  m_Name: Manager
-  m_TagString: Ground
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1569089859
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569089858}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 458813453}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1569089860
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569089858}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.3, z: 0.4}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1569089861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569089858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myCar: {fileID: 1787588086}
-  goal: {fileID: 1019073695}
-  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
-    type: 3}
-  line: {fileID: 0}
-  lineRenderer: {fileID: 0}
-  tilePos: {fileID: 458813453}
 --- !u!1 &1579612932
 GameObject:
   m_ObjectHideFlags: 0
@@ -9854,7 +9912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1579612933
 Transform:
   m_ObjectHideFlags: 0
@@ -9863,10 +9921,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579612932}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.08, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_LocalPosition: {x: 0, y: 0.5799999, z: 0}
+  m_LocalScale: {x: 0.07000001, y: 0.07, z: 0.07}
   m_Children: []
-  m_Father: {fileID: 787843871}
+  m_Father: {fileID: 751885578}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &1579612934
@@ -10015,7 +10073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1683582529
 Transform:
   m_ObjectHideFlags: 0
@@ -10024,10 +10082,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683582528}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.08, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_LocalPosition: {x: 0, y: 0.5799999, z: 0}
+  m_LocalScale: {x: 0.07000001, y: 0.07, z: 0.07}
   m_Children: []
-  m_Father: {fileID: 458813453}
+  m_Father: {fileID: 876483349}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &1683582530
@@ -10156,18 +10214,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787316694}
   m_CullTransparentMesh: 0
---- !u!114 &1787588086 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6318146511503885872, guid: 049d6e43e4f044d4b9ff71c0be7f27e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 6318146509801810886}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147720212643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 571f8cc8cf3086a45bf97a0f4b1d3aec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1822937632 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 71312cb8c46974249ada109a207bac6b,
@@ -10451,8 +10497,9 @@ GameObject:
   - component: {fileID: 2002103969}
   - component: {fileID: 2002103968}
   - component: {fileID: 2002103967}
+  - component: {fileID: 2002103970}
   m_Layer: 9
-  m_Name: Cube (1)
+  m_Name: Tile6
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10466,7 +10513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002103965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27773625, y: 11.363883, z: -3.8873842}
+  m_LocalPosition: {x: 0.27773625, y: 11.363883, z: -2.39}
   m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 1212044933}
@@ -10532,6 +10579,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002103965}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2002103970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002103965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1001 &2030898869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10731,8 +10797,9 @@ GameObject:
   - component: {fileID: 2048952281}
   - component: {fileID: 2048952280}
   - component: {fileID: 2048952279}
+  - component: {fileID: 2048952282}
   m_Layer: 9
-  m_Name: Cube (15)
+  m_Name: Tile14
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10746,7 +10813,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048952277}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2777, y: 11.363883, z: -2.3874}
+  m_LocalPosition: {x: 0.2777, y: 11.363883, z: -3.89}
   m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 1212044933}
@@ -10812,6 +10879,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048952277}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2048952282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048952277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1001 &2077994493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11048,8 +11134,9 @@ GameObject:
   - component: {fileID: 2099466153}
   - component: {fileID: 2099466152}
   - component: {fileID: 2099466151}
+  - component: {fileID: 2099466154}
   m_Layer: 9
-  m_Name: Cube (12)
+  m_Name: Tile10
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11129,6 +11216,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099466149}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2099466154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099466149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a148e10841c2e49b4c73c39f15fa56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myPlayer: {fileID: 293898765}
+  goal: {fileID: 612316335}
+  linePrefab: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+    type: 3}
+  line: {fileID: 0}
+  lineRenderer: {fileID: 0}
+  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
 --- !u!1 &2117241198
 GameObject:
   m_ObjectHideFlags: 0
@@ -11396,7 +11502,7 @@ PrefabInstance:
         type: 3}
       propertyPath: startingPoint
       value: 
-      objectReference: {fileID: 458813452}
+      objectReference: {fileID: 0}
     - target: {fileID: 6318146511503885872, guid: 049d6e43e4f044d4b9ff71c0be7f27e6,
         type: 3}
       propertyPath: menuController
@@ -11412,10 +11518,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Empty_Running
       objectReference: {fileID: 0}
+    - target: {fileID: 6588758657534344037, guid: 049d6e43e4f044d4b9ff71c0be7f27e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7894692038580511909, guid: 049d6e43e4f044d4b9ff71c0be7f27e6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dfcde0ccfcab710449f8371784153351, type: 2}
+    - target: {fileID: 8607732142608566631, guid: 049d6e43e4f044d4b9ff71c0be7f27e6,
+        type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 1438555985}
+    - target: {fileID: 8607732142608566631, guid: 049d6e43e4f044d4b9ff71c0be7f27e6,
+        type: 3}
+      propertyPath: linePrefab
+      value: 
+      objectReference: {fileID: 6989172668545376227, guid: b19c9ffcc9c62974393362b35c6f25d6,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 049d6e43e4f044d4b9ff71c0be7f27e6, type: 3}

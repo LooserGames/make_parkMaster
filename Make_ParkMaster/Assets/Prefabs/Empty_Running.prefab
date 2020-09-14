@@ -6345,12 +6345,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingPoint: {fileID: 0}
+  voiceController: {fileID: 0}
   speed: 0.035
   impulsePower: 30
   mousePos: {x: 0, y: 0, z: 0}
+  canMove: 0
   head: {fileID: 6318146510702222017}
   startAngle: {x: 0, y: 0, z: 0, w: 0}
   stars: {fileID: 2843236985250062798}
+  menuController: {fileID: 0}
 --- !u!1 &6938334356071265100
 GameObject:
   m_ObjectHideFlags: 0
