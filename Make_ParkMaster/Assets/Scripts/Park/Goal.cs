@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public GameObject myCar;
+    [SerializeField]private GameObject player;
 
     public bool isCarHere;
     private StageManager stageManager;
@@ -31,14 +31,14 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == myCar)
+        if(other.gameObject == player)
         {
             Debug.Log("Parkta");
             isCarHere = true;
-            Debug.Log(myCar.name);
+            Debug.Log(player.name);
             kareAnim.SetActive(true);
             GameObject.Find("Main Camera").GetComponent<VoiceController>().playVoice(1);
-            myCar.GetComponent<Animator>().SetBool("Win", true);
+            player.GetComponent<Animator>().SetBool("Win", true);
             fillColor.SetActive(true);
             //player1.GetComponent<Animator>().SetBool("Run", false);
         //    this.GetComponent<MeshRenderer>().material.color = new Color(color.r + 0.5f, color.g + 0.5f, color.b + 0.5f);
@@ -52,7 +52,7 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == myCar)
+        if (other.gameObject == player)
         {
          //   this.GetComponent<MeshRenderer>().material.color = color;
             isCarHere = false;

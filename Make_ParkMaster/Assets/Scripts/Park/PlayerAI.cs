@@ -10,6 +10,7 @@ public class PlayerAI : Player
     protected override void Start()
     {
         base.Start();
+
     }
 
     public void SetRandomTile()
@@ -17,10 +18,13 @@ public class PlayerAI : Player
         foreach (var t in tiles)
         {
             bool isPossibleToMove = Vector3.Distance(t.transform.position, this.transform.position) < tiles[0].transform.lossyScale.x + 0.1f;
-            if(isPossibleToMove && !visitedTiles.Contains(t.transform.position))
+            if (isPossibleToMove && !visitedTiles.Contains(t.transform.position) && t.occupied == false)
+            {
                 SetTarget(t.transform.position);
-            
+                t.occupied = true;
+                break;
+            }
+
         }
     }
-
 }
