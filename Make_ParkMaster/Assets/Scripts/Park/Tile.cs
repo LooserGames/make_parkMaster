@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public Player player1;
-    public Player player2;
-    public GameObject goal1;
-    public GameObject goal2;
 
     public GameObject linePrefab;
     public GameObject line;
@@ -16,18 +14,11 @@ public class Tile : MonoBehaviour
     private RaycastHit hit;
     private Ray clickRay;
 
-    [SerializeField] private Material tileColor;
-
+    [HideInInspector] public bool occupied = false;
 
     // Start is called before the first frame update
     private void Start()
     {
-        if (goal1 != null)
-            goal1.GetComponent<Goal>().myCar = player1.gameObject;   
-        if (goal2 != null)
-            goal2.GetComponent<Goal>().myCar = player2.gameObject;
-        
-
         CreateLine();
     }
 
@@ -42,12 +33,12 @@ public class Tile : MonoBehaviour
         {
             bool isPossibleToMove = Vector3.Distance(this.transform.position, player.transform.position) <
                                     this.transform.lossyScale.x + 0.1f;
-            if (isPossibleToMove && Physics.Raycast(clickRay, out hit, layMask))
+            if (isPossibleToMove && Physics.Raycast(clickRay, out hit, layMask) && !occupied)
             {
-                Debug.Log("hello");
-                if (hit.transform.name == this.transform.name)
+                if (hit.transform == this.transform)
                 {
-                    GetComponent<MeshRenderer>().material = tileColor;
+                    occupied = true;
+
                     mousePos = new Vector3(hit.point.x, this.transform.position.y, hit.point.z);
                     player.SetTarget(this.transform.position);
                 }

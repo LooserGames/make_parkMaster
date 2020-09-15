@@ -23,7 +23,9 @@ public class Player : MonoBehaviour
     private Vector3 target;
     [SerializeField]private PlayerAI ai;
 
-    protected List<Vector3> visitedTiles;
+    protected List<Vector3> visitedTiles = new List<Vector3>();
+
+    [SerializeField] private Material tileMaterial;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -44,37 +46,38 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
+    {
+        float dist = Vector3.Distance(this.transform.position, target);
+        if (dist > 0.05f)
         {
-            float dist = Vector3.Distance(this.transform.position, target);
-            if (dist > 0.05f)
+
+            target = new Vector3(target.x, this.transform.position.y, target.z);
+            dir = (target - this.transform.position);
+
+
+            float angle = Quaternion.FromToRotation(headVec, dir).eulerAngles.y;
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(dir),
+                Time.fixedDeltaTime * 10.0f);
+            transform.position = Vector3.MoveTowards(transform.position, target, speed);
+            transform.GetComponent<Animator>().SetBool("Run", true);
+
+            dist = Vector3.Distance(this.transform.position, target);
+            if (dist < 0.05f)
             {
-    
-                target = new Vector3(target.x, this.transform.position.y, target.z);
-                dir = (target - this.transform.position);
-    
-    
-                float angle = Quaternion.FromToRotation(headVec, dir).eulerAngles.y;
-                this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(dir),
-                    Time.deltaTime * 10.0f);
-                transform.position = Vector3.MoveTowards(transform.position, target, speed);
-                transform.GetComponent<Animator>().SetBool("Run", true);
-    
-                dist = Vector3.Distance(this.transform.position, target);
-                if (dist < 0.05f)
+                if (ai != null)
                 {
-                    if (ai != null)
-                    {
-                        ai.SetRandomTile();
-                        transform.position = target;
-                    }
+                    ai.SetRandomTile();
+                    transform.position = target;
                 }
             }
-    
-            else
-                transform.GetComponent<Animator>().SetBool("Run", false);
-    
         }
+
+        else
+            transform.GetComponent<Animator>().SetBool("Run", false);
+
+    }
+
     public Vector3 GetDir()
     {
         return dir;
@@ -89,7 +92,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.GetComponent<Player>())
         {
@@ -106,13 +109,26 @@ public class Player : MonoBehaviour
             Vector3 powerDir = (otherDir + myInvDir) + Vector3.up;
             this.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(powerDir * impulsePower, collision.transform.position, ForceMode.Impulse); */
         }
-        else if(collision.gameObject.tag != "Ground")
+        else if(collision.gameObject.tag == "Ground")
+        {
+            MeshRenderer mr = collision.transform.gameObject.GetComponent<MeshRenderer>();
+            if(mr != null && mr.material != tileMaterial)
+                mr.material = tileMaterial;
+        }
+        else
         {
             Vector3 myInvDir = -dir;
 
             Vector3 powerDir =  myInvDir + Vector3.up;
             this.gameObject.GetComponent<Rigidbody>().AddForceAtPosition(powerDir * impulsePower, collision.transform.position, ForceMode.Impulse);
         }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+            collision.gameObject.GetComponent<Tile>().occupied = false;
+        
     }
     IEnumerator RestartLevel()
     {
