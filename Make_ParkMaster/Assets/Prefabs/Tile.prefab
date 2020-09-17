@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7917711177827007774}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.27773625, y: 11.363883, z: -0.8873842}
   m_LocalScale: {x: 1.5, y: 0.5, z: 1.5}
   m_Children: []
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84289e7911ad43d42a4dcc57e888bcaa, type: 2}
+  - {fileID: 2100000, guid: 718c05484ef6f7b448458155888ddf5f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,4 +111,22 @@ MonoBehaviour:
     type: 3}
   line: {fileID: 0}
   lineRenderer: {fileID: 0}
-  tileColor: {fileID: 2100000, guid: 583f1ae5845cd04409cbfc0c06d2f863, type: 2}
+  occupied: 0
+  discoMaterial: {fileID: 2100000, guid: d8f6b4154d3daca4eb4a93b2d41a928c, type: 2}
+  Colors:
+  - {r: 0.019607844, g: 0.9803922, b: 0.3803922, a: 1}
+  - {r: 0.9215687, g: 0.5803922, b: 0.019607844, a: 1}
+  - {r: 0.48235297, g: 0.7960785, b: 1, a: 1}
+  - {r: 0.9215687, g: 0.77647066, b: 0.10588236, a: 1}
+  - {r: 0.9215687, g: 0.3803922, b: 1, a: 1}
+  - {r: 0.91372555, g: 0.53333336, b: 0.41176474, a: 1}
+  - {r: 0.20392159, g: 0.5372549, b: 1, a: 1}
+  - {r: 0.85098046, g: 0.227451, b: 0.15686275, a: 1}
+  - {r: 0.47450984, g: 0.7058824, b: 1, a: 1}
+  - {r: 0.21568629, g: 0.81568635, b: 0.63529414, a: 1}
+  - {r: 0.9215687, g: 0.64705884, b: 1, a: 1}
+  - {r: 0.61960787, g: 0.6156863, b: 1, a: 1}
+  materials:
+  - {fileID: 2100000, guid: 38544e26094bdb74191aa0889ad533c8, type: 2}
+  - {fileID: 2100000, guid: e379d51c1277b5440b8aa28f21d49a92, type: 2}
+  - {fileID: 2100000, guid: 39a7e286ed548644cb7e38468df27446, type: 2}

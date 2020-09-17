@@ -18,15 +18,19 @@ public class StageManager : MonoBehaviour
 
     public void CheckEveryCarInGoal()
     {
-        for(int i = 0; i < goals.Length; i++)
+        
+        if (goals[1].IsCarHere() == true)
         {
-            if(goals[i].IsCarHere() == false)
-            {
-                return;
-            }
+            menuController.OpenWinPanel();
+            GetComponent<VoiceController>().playVoice(0);
         }
-        menuController.OpenWinPanel();
-        GetComponent<VoiceController>().playVoice(0);
-      //  ClearGame();
+        
+        if (goals[0].IsCarHere() == true)
+        {
+            menuController.OpenGameOverPanel();
+            GameObject.Find("Player").GetComponent<Player>().enabled = false;
+        }
+
+        //  ClearGame();
     }
 }
