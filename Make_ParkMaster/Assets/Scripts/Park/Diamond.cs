@@ -15,6 +15,9 @@ public class Diamond : MonoBehaviour
             GameObject.Find("Canvas").GetComponent<MenuController>().AddBestDiamond();
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
+    
     }
+
+ 
     
 }

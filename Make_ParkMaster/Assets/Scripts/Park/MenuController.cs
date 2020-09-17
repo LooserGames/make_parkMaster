@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] Transform cam;
     [SerializeField] GameObject winPanel;
+    [SerializeField] private GameObject gameOverPanel;
     [SerializeField] TextMeshProUGUI fillText;
     [SerializeField] Image fill;
     [SerializeField] SpriteRenderer bestDiamondFirst;
@@ -23,6 +24,11 @@ public class MenuController : MonoBehaviour
 
         StartCoroutine(OpenWinPanelForSecond());
         StartCoroutine(StartFill());
+    }
+
+    public void OpenGameOverPanel()
+    {
+        StartCoroutine(openGameoverPanelSecond());
     }
     IEnumerator StartFill(int startCount = 20, int endCount = 50)
     {
@@ -50,5 +56,12 @@ public class MenuController : MonoBehaviour
         cam.GetChild(2).GetComponent<ParticleSystem>().Play(); //particle 3 patlat
         yield return new WaitForSeconds(2.5f);
         winPanel.GetComponent<Animator>().StopPlayback();
+    }
+
+    IEnumerator openGameoverPanelSecond()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameOverPanel.SetActive(true);
+
     }
 }
